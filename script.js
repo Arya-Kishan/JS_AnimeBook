@@ -12,7 +12,7 @@ function showTrending(trendingArr) {
 
     trendingArr.forEach((e) => {
         trendingContainer.innerHTML += `<div class="card1">
-        <img src=${e.images.webp.image_url} alt="" srcset="">
+        <img loading="lazy" src=${e.images.webp.image_url} alt="" srcset="">
                 <b>${e.title.split(" ").slice(0, 2).join(" ")}</b>
                 <span>${e.source}</span>
                 </div>`
@@ -38,7 +38,7 @@ function showUpcoming(upcomingArr) {
 
     upcomingArr.forEach((e) => {
         upcomingContainer.innerHTML += `<div class="card1">
-        <img src=${e.images.webp.image_url} alt="" srcset="">
+        <img loading="lazy" src=${e.images.webp.image_url} alt="" srcset="">
         <b>${e.title.split(" ").slice(0, 2).join(" ")}</b>
                 <span>${e.source}</span>
                 </div>`

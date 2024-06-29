@@ -12,7 +12,7 @@ function showTrending(trendingArr) {
 
     trendingArr.forEach((e) => {
         trendingContainer.innerHTML += `<div class="card1">
-        <img loading="lazy" src=${e.images.webp.image_url} alt="" srcset="">
+        <img onclick="handleCard(${e.mal_id})" loading="lazy" src=${e.images.webp.image_url} alt="" srcset="">
                 <b>${e.title.split(" ").slice(0, 2).join(" ")}</b>
                 <span>${e.source}</span>
                 </div>`
@@ -38,7 +38,7 @@ function showUpcoming(upcomingArr) {
 
     upcomingArr.forEach((e) => {
         upcomingContainer.innerHTML += `<div class="card1">
-        <img loading="lazy" src=${e.images.webp.image_url} alt="" srcset="">
+        <img onclick="handleCard(${e.mal_id})" loading="lazy" src=${e.images.webp.image_url} alt="" srcset="">
         <b>${e.title.split(" ").slice(0, 2).join(" ")}</b>
                 <span>${e.source}</span>
                 </div>`
@@ -48,3 +48,18 @@ function showUpcoming(upcomingArr) {
 
 
 getUpcoming();
+
+
+const handleCard = (animeId) => {
+    localStorage.setItem("animeId", animeId);
+    window.location.href = "detail.html"
+}
+
+// search anime
+let input = document.querySelector("#input")
+let btn = document.querySelector("#btn")
+
+btn.addEventListener("click", (e) => {
+    localStorage.setItem("userInput", input.value);
+    window.location.href = "search.html"
+})
